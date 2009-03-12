@@ -1,0 +1,31 @@
+Cumulus Web Services Library
+============================
+
+This is a project in its very early stages to write a PHP library for the Digital Asset Management Software "Canto Cumulus". You can use its Web Service functionality only if you have installed the Web Publisher.
+
+Since there is no documentation or examples on the net, I hope this is of use to someone.
+
+The first out-of-the-box working version is scheduled to April 15th 2009.
+
+Jakob Stoeck - March 12th, 2009 - Genova, Italia
+
+
+Example Usage (only working in CakePHP Controller at this time)
+===============================================================
+<?php
+function cumulusExample() {
+	loadModel('Cumulus'); $this->Cumulus = new Cumulus();
+	
+	$query = '"Asset Name" "starts with" "abc" AND "Categories" == "def"';
+	$records = $this->Cumulus->getRecordData($query, array('Categories', 'Asset Modification Date', 'Asset Name'));
+	
+	return $records;
+}
+?>
+
+Disclaimer
+==========
+
+I have nothing to do with Canto, Inc. (the vendor of Cumulus)
+
+Copyright 2009 by Jakob Stoeck
